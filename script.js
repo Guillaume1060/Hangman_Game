@@ -1,8 +1,8 @@
- if (typeof window !== 'undefined') {
-     console.log('You are on the browser')
-   } else {
-     console.log('You are on the server')
-   }
+//  if (typeof window !== 'undefined') {
+//      console.log('You are on the browser')
+//    } else {
+//      console.log('You are on the server')
+//    }
   
 
 // Tableau du mots
@@ -21,16 +21,15 @@ console.log (TableauDesLettresDuMot)
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 console.log (alphabet);
 
-// INTERACTION -> Lettre choisie
+// INTERACTION -> Récupérer la lettre choisie              >>>>> faudra t'il en créer une fonction ?
 var lettreChoisie;
-let btn = document.getElementById("clavier");
-console.log (btn);
-btn.addEventListener ('click', () => { console.log(btn) });
+var buttons = document.querySelectorAll("button");
 
-console.log (lettreChoisie);
-
-
-
+for (let i = 0; i< buttons.length;i++)
+        {
+            buttons[i].addEventListener("click", clique())
+            lettreChoisie = buttons[i].innerHTML;
+        }
 
 // Nombre de vies
 var vies = 7;
@@ -38,7 +37,43 @@ var vies = 7;
 // mot vide
 var motUtilisateur = [];
 
+
 // verify if a selected letter belongs to the word
+function clique ()
+{
+    console.log (lettreChoisie);
+    while (vies>0)  /* || (motUtilisateur !== TableauDesLettresDuMot))  */
+    {
+       for (let i=0;i<TableauDesLettresDuMot.length;i++)
+       {
+           // ici pbm avec ma boucle puique qu'elle enlève des vies en cherchant dans le tableau
+           if (lettreChoisie==TableauDesLettresDuMot[i])
+           {
+               alert ('hello');
+               // Add motUtilisateur
+           }
+           else
+           {
+               // add dessin
+               alert ('ciao')
+               vies --;
+           }
+       }
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 // while (vies>0 || (motUtilisateur !== TableauDesLettresDuMot))
 // {
 //     for (i=0;i<TableauDesLettresDuMot.length;i++)
